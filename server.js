@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
@@ -27,8 +28,25 @@ app.use(bodyParser.json());
 
 
 
+// -----------------   Setup Morgan (logger middlewarr for Express)   -----------------
+app.use(require('morgan')('dev'));
+
+
+
+
+
 // -----------------   Setup Passport   -----------------
-app.use(session({ secret: 'powder blue', resave: true, saveUninitialized: true }));  // Session secret
+app.use(session({
+  name: 'server-session-cookie-id',
+  secret: 'powder blue',
+  resave: true,
+  saveUninitialized: true,
+  store: new FileStore()
+})); 
+app.use(function printSession(req, res, next) {
+  console.log('req.session', req.session);
+  return next();
+});
 app.use(passport.initialize());
 app.use(passport.session());  // Persistent login session
 
