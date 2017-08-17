@@ -11,6 +11,15 @@ var exphbs = require('express-handlebars');
 
 
 
+
+// -----------------   Including the song and category files   -----------------
+var songDataIndie = require('./app/data/genres/indie.json');
+var categoryData = require('./app/data/categoryData.json');
+
+
+
+
+
 // -----------------   Setup Handlbars   -----------------
 app.set('views', './app/views');
 app.engine('hbs', exphbs({
