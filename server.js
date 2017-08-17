@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 
 
-// -----------------   Setup Morgan (logger middlewarr for Express)   -----------------
+// -----------------   Setup Morgan (logger middleware for Express)   -----------------
 app.use(require('morgan')('dev'));
 
 
@@ -42,7 +42,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   store: new FileStore()
-})); 
+}));
 app.use(function printSession(req, res, next) {
   console.log('req.session', req.session);
   return next();
