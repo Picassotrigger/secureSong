@@ -8,22 +8,14 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.INTEGER
     },
 
-    firstname: {
+    firstName: {
       type: Sequelize.STRING,
       notEmpty: true
     },
 
-    lastname: {
+    lastName: {
       type: Sequelize.STRING,
       notEmpty: true
-    },
-
-    username: {
-      type: Sequelize.TEXT
-    },
-
-    about: {
-      type: Sequelize.TEXT
     },
 
     email: {
@@ -38,7 +30,21 @@ module.exports = function(sequelize, Sequelize) {
       allowNull: false
     },
 
-    last_login: {
+    screenName: {
+      type: Sequelize.TEXT
+    },
+
+    scoreRunning: {
+      type: Sequelize.INTEGER,
+      notEmpty: true
+    },
+
+    scoreThisGame: {
+      type: Sequelize.INTEGER,
+      notEmpty: true
+    },
+
+    lastLogin: {
       type: Sequelize.DATE
     },
 

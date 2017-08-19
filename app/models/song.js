@@ -8,12 +8,12 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.INTEGER
     },
 
-    songname: {
+    songName: {
       type: Sequelize.STRING,
       notEmpty: true
     },
 
-    artistname: {
+    artistName: {
       type: Sequelize.STRING,
       notEmpty: true
     },
@@ -22,7 +22,7 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.TEXT
     },
 
-    cliplink: {
+    clipLink: {
       type: Sequelize.TEXT
     }
 
